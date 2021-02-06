@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Focus on your Today</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" />
+  </head>
+
+  <body id="body">
+    <nav id="nav">
+      <div id="menu-icon" onclick="toggleSettings()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+      <span id="search" contenteditable="true" aria-placeholder="Search the web"></span>
+
+      <div id="weather"></div>
+    </nav>
+
+    <div id="settings">
+      <h1>Settings</h1>
+
+      <div class="settings-group">
+        <h2>Search</h2>
+        <ul>
+          <li id="settings-search-enabled" class="settings-item" onclick="enableSearch(true)">On</li>
+          <li id="settings-search-disabled" class="settings-item" onclick="enableSearch(false)">Off</li>
+        </ul>
+        <ul>
+          <li id="settings-search-duckduckgo" class="settings-item" onclick="searchEngine('duckduckgo')">DuckDuckGo</li>
+          <li id="settings-search-google" class="settings-item" onclick="searchEngine('google')">Google</li>
+          <li id="settings-search-youtube" class="settings-item" onclick="searchEngine('youtube')">Youtube</li>
+        </ul>
+      </div>
+
+
+      <div class="settings-group">
+        <h2>Weather</h2>
+        <ul>
+          <li id="settings-weather-enabled" class="settings-item" onclick="enableWeather(true)">On</li>
+          <li id="settings-weather-disabled" class="settings-item" onclick="enableWeather(false)">Off</li>
+        </ul>
+        <ul>
+          <li id="settings-weather-metric" class="settings-item" onclick="weatherUnit('metric')">C°</li>
+          <li id="settings-weather-imperial" class="settings-item" onclick="weatherUnit('imperial')">F°</li>
+        </ul>
+      </div>
+
+      <div class="settings-group">
+        <label for="city">City: </label>
+        <input id="city" class="transparent-input" placeholder="Enter your city" onkeypress="handleCity(event)" onblur="handleCity(event)">
+      </div>
+
+      <div class="settings-group">
+        <h2>Greeting</h2>
+        <ul>
+          <li id="settings-greeting-enabled" class="settings-item" onclick="enableGreeting(true)">On</li>
+          <li id="settings-greeting-disabled" class="settings-item" onclick="enableGreeting(false)">Off</li>
+        </ul>
+      </div>
+
+      <div class="settings-group">
+        <h2>Time</h2>
+        <ul>
+          <li id="settings-time-enabled" class="settings-item" onclick="enableTime(true)">On</li>
+          <li id="settings-time-disabled" class="settings-item" onclick="enableTime(false)">Off</li>
+        </ul>
+        <ul>
+          <li id="settings-time-12" class="settings-item" onclick="timeFormat(12)">12h</li>
+          <li id="settings-time-24" class="settings-item" onclick="timeFormat(24)">24h</li>
+        </ul>
+      </div>
+
+      <div class="settings-group">
+        <h2>Date</h2>
+        <ul>
+          <li id="settings-date-enabled" class="settings-item" onclick="enableDate(true)">On</li>
+          <li id="settings-date-disabled" class="settings-item" onclick="enableDate(false)">Off</li>
+        </ul>
+      </div>
+
+      <div class="settings-group">
+        <h2>To-do list</h2>
+        <ul>
+          <li id="settings-todo-enabled" class="settings-item" onclick="enableTodo(true)">On</li>
+          <li id="settings-todo-disabled" class="settings-item" onclick="enableTodo(false)">Off</li>
+        </ul>
+      </div>
+      <!--
+      <div class="settings-group">
+        <h2>Bookmarks</h2>
+        <ul>
+          <li class="settings-item settings-item-selected">On</li>
+          <li class="settings-item"> | </li>
+          <li class="settings-item">Off</li>
+        </ul>
+      </div>
+
+      <div class="settings-group">
+        <h2>Language</h2>
+        <strong>English</strong> | Français
+      </div>
+      -->
+      <div class="settings-group">
+        <h2>Reset</h2>
+        <p class="settings-item" onclick="resetApp()">Reset to default values</p>
+      </div>
+    </div>
+
+    <div id="container" class="xrow">
+      <section id="column-1" class="xcolumn">
+        <h2 id="greeting">
+          <span id="appuser" contenteditable="true" aria-placeholder="Shital"></span>.
+        </h2>
+        <p id="time"></p>
+        <span id="date">Sunday, November 15, 2020</span>
+      </section>
+      <aside id="column-2" class="xcolumn">
+        <h3>Tasks</h3>
+        <div id="todo-items"></div>
+      </aside>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
